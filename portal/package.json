@@ -1,7 +1,7 @@
 {
   "name": "ehr-portal-api",
   "description": "Patient portal BFF and API gateway reference (demo data)",
-  "license": "none",
+  "license": "MIT",
   "private": true,
   "workspaces": [
     "shared",
