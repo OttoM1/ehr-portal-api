@@ -8,7 +8,7 @@
     "api"
   ],
   "scripts": {
-    "dev": "npm run dev -w @ehr-portal-portal/api",
+    "dev": "npm run dev -w @ehr-portal/api",
     "build": "npm run build -w @ehr-portal/shared && npm run build -w @ehr-portal/api"
   }
 }
