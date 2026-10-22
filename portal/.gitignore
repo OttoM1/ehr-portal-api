@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+.env.*
+
+# Local-only Vite client (not published with this repo)
+portal/

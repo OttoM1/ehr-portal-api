@@ -1,0 +1,14 @@
+{
+  "name": "ehr-portal-api",
+  "description": "Patient portal BFF and API gateway reference (demo data)",
+  "license": "none",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "api"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @ehr-portal-portal/api",
+    "build": "npm run build -w @ehr-portal/shared && npm run build -w @ehr-portal/api"
+  }
+}
