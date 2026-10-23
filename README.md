@@ -1,5 +1,7 @@
 # EHR Portal API
 
+[![CI](https://github.com/OttoM1/ehr-portal-api/actions/workflows/ci.yml/badge.svg)](https://github.com/OttoM1/ehr-portal-api/actions/workflows/ci.yml)
+
 Patient portal BFF and API gateway reference implementation in TypeScript (Hono). Demonstrates how a browser or mobile client can talk to one edge API that enforces context, limits abuse, and aggregates mock clinical services.
 
 **_PUBLIC DEMO ONLY_**
