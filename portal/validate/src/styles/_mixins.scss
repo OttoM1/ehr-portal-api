@@ -1,0 +1,33 @@
+@use 'variables' as *;
+
+@mixin thin-border($color: $color-border) {
+  border: $border-width solid $color;
+}
+
+@mixin lowercase-heading($size: $font-size-section) {
+  font-size: $size;
+  font-weight: $font-weight-thin;
+  text-transform: lowercase;
+}
+
+@mixin field-surface {
+  @include thin-border;
+  border-radius: $radius;
+  background: $color-bg;
+  color: $color-fg;
+  font: inherit;
+  font-weight: $font-weight-thin;
+}
+
+@mixin focus-ring {
+  &:focus {
+    outline: $border-width solid $color-border;
+    outline-offset: 0;
+  }
+}
+
+@mixin stack-at($width: $breakpoint-stack) {
+  @media (max-width: $width) {
+    @content;
+  }
+}

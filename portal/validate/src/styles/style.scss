@@ -1,0 +1,187 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: $color-bg;
+  color: $color-fg;
+  font-family: $font-sans;
+  font-weight: $font-weight-thin;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing;
+}
+
+#app {
+  max-width: $app-max-width;
+  margin: 0 auto;
+  padding: $space-4xl $space-3xl $space-5xl;
+}
+
+h1 {
+  margin: 0 0 $space-xs;
+  font-size: $font-size-title;
+  font-weight: $font-weight-thin;
+  text-transform: lowercase;
+}
+
+.sub {
+  margin: 0 0 $space-3xl;
+  font-size: $font-size-sub;
+  color: $color-sub;
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: 1fr 140px auto;
+  gap: $space-md;
+  margin-bottom: $space-3xl;
+  padding-bottom: $space-2xl;
+  border-bottom: $border-width solid $color-border;
+
+  @include stack-at {
+    grid-template-columns: 1fr;
+  }
+}
+
+label {
+  display: block;
+  font-size: $font-size-small;
+  margin-bottom: $space-xs;
+  text-transform: lowercase;
+}
+
+input {
+  width: 100%;
+  padding: $space-sm $space-md;
+  @include field-surface;
+  @include focus-ring;
+}
+
+button {
+  align-self: end;
+  padding: 7px $space-xl;
+  @include field-surface;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-hover;
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-3xl;
+  align-items: start;
+
+  @include stack-at {
+    grid-template-columns: 1fr;
+  }
+}
+
+section {
+  @include thin-border;
+  padding: $space-lg $space-xl;
+
+  h2 {
+    margin: 0 0 $space-lg;
+    @include lowercase-heading;
+    border-bottom: $border-width solid $color-border-light;
+    padding-bottom: $space-md;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-size-section;
+
+  th,
+  td {
+    border: $border-width solid $color-border-light;
+    padding: 5px $space-md;
+    text-align: left;
+    vertical-align: top;
+    font-weight: $font-weight-thin;
+  }
+
+  th {
+    border-color: $color-border;
+    font-weight: $font-weight-thin;
+  }
+}
+
+.ok {
+  color: $color-fg;
+}
+
+.fail {
+  color: $color-fg;
+  text-decoration: line-through;
+}
+
+.mono {
+  font-family: $font-mono;
+  font-size: $font-size-small;
+  font-weight: $font-weight-thin;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  max-height: $mono-max-height;
+  overflow: auto;
+  @include thin-border($color-border-light);
+  padding: $space-md;
+}
+
+.portal-block {
+  margin-bottom: $space-xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    margin: 0 0 $space-sm;
+    @include lowercase-heading($font-size-small);
+  }
+}
+
+.muted {
+  color: $color-muted;
+  font-size: $font-size-small;
+}
+
+.task-row {
+  display: flex;
+  align-items: baseline;
+  gap: $space-md;
+  padding: $space-xs 0;
+  border-bottom: $border-width solid $color-border-faint;
+
+  input {
+    width: auto;
+  }
+}
+
+.status-pill {
+  display: inline-block;
+  min-width: 28px;
+  text-align: center;
+  @include thin-border;
+  padding: 1px $space-xs;
+  font-size: $font-size-small;
+}

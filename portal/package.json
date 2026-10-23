@@ -5,10 +5,13 @@
   "private": true,
   "workspaces": [
     "shared",
-    "api"
+    "api",
+    "validate"
   ],
   "scripts": {
     "dev": "npm run dev -w @ehr-portal/api",
-    "build": "npm run build -w @ehr-portal/shared && npm run build -w @ehr-portal/api"
+    "dev:validate": "npm run dev -w @ehr-portal/validate",
+    "build": "npm run build -w @ehr-portal/shared && npm run build -w @ehr-portal/api && npm run build -w @ehr-portal/validate",
+    "smoke": "node scripts/smoke.mjs"
   }
 }

@@ -6,12 +6,13 @@ on:
   pull_request:
     branches: [main]
 
+defaults:
+  run:
+    working-directory: portal
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: portal
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,3 +22,17 @@ jobs:
           cache-dependency-path: portal/package-lock.json
       - run: npm ci
       - run: npm run build
+
+  smoke:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: portal/package-lock.json
+      - run: npm ci
+      - run: npm run build -w @ehr-portal/shared && npm run build -w @ehr-portal/api
+      - run: npm run smoke

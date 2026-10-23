@@ -10,7 +10,7 @@ export function createApp() {
 
   app.use('*', logger());
   app.use(
-    '/api/*',
+    '*',
     cors({
       origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
       allowHeaders: ['Content-Type', 'X-Patient-Id', 'X-Request-Id'],

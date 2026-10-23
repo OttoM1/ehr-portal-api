@@ -1,0 +1,20 @@
+{
+  "name": "@ehr-portal/validate",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "push": "chmod +x ./bash/release.sh && bash/release.sh"
+  },
+  "dependencies": {
+    "@ehr-portal/shared": "*"
+  },
+  "devDependencies": {
+    "sass": "^1.89.2",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  }
+}
